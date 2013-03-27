@@ -2277,6 +2277,11 @@ void CApplication::Render()
     // Whether externalplayer is playing and we're unfocused
     bool extPlayerActive = m_eCurrentPlayer == EPC_EXTPLAYER && IsPlaying() && !m_AppFocused;
 
+    if ((g_infoManager.GetFPS() > g_graphicsContext.GetFPS() + 5))
+    {
+      CLog::Log(LOGNOTICE,"------------------ lost vsync");
+    }
+
     m_bPresentFrame = false;
     if (!extPlayerActive && g_graphicsContext.IsFullScreenVideo() && !IsPaused())
     {
