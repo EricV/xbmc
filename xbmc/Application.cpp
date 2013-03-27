@@ -2279,7 +2279,9 @@ void CApplication::Render()
 
     if ((g_infoManager.GetFPS() > g_graphicsContext.GetFPS() + 5))
     {
-      CLog::Log(LOGNOTICE,"------------------ lost vsync");
+      CLog::Log(LOGNOTICE,"------------------ lost vsync - current: %f, should be: %f",
+          g_infoManager.GetFPS(),
+          g_graphicsContext.GetFPS());
     }
 
     m_bPresentFrame = false;
