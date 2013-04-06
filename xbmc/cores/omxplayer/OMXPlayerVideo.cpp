@@ -358,7 +358,7 @@ void OMXPlayerVideo::Output(int iGroupId, double pts, bool bDropPacket)
                      + (bufferlevel+1)* iFrameDuration;
   ProcessOverlays(iGroupId, pts_overlay);
 
-  double timestamp = (CDVDClock::GetAbsoluteClock(false) + (bufferlevel+1) * iFrameDuration) / DVD_TIME_BASE;
+  double timestamp = (CDVDClock::GetAbsoluteClock(false) + (bufferlevel) * iFrameDuration) / DVD_TIME_BASE;
   g_renderManager.FlipPage(CThread::m_bStop, timestamp, -1, FS_NONE);
 }
 
