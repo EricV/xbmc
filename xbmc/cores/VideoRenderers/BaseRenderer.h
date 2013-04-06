@@ -88,6 +88,7 @@ public:
   virtual unsigned int GetMaxBufferSize() { return 0; }
   virtual void SetBufferSize(int numBuffers) { }
   virtual void ReleaseBuffer(int idx) { }
+  virtual bool HasFrame() { return true; }
 
   virtual bool Supports(ERENDERFEATURE feature) { return false; }
 
@@ -96,7 +97,7 @@ public:
 
   virtual void RegisterRenderUpdateCallBack(const void *ctx, RenderUpdateCallBackFn fn);
 
-protected:
+  protected:
   void       ChooseBestResolution(float fps);
   bool       FindResolutionFromOverride(float fps, float& weight, bool fallback);
   void       FindResolutionFromFpsMatch(float fps, float& weight);
